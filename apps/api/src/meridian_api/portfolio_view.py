@@ -28,6 +28,12 @@ def money(value: Decimal) -> str:
     return format(value.quantize(MONEY), "f")
 
 
+def _level(value: float | None) -> str | None:
+    if value is None:
+        return None
+    return money(Decimal(str(value)))
+
+
 def build_workspace(db: Session, user: User) -> dict[str, object]:
     book = active_book()
     status = data_status()
@@ -223,6 +229,14 @@ def _portfolio(portfolio: Portfolio, book, preference) -> dict[str, object]:
                 "realizedPnl": money(row["realized_pnl"]),
                 "sector": row["sector"],
                 "eps": None if not filed or not facts.eps else format(facts.eps, "f"),
+                "support": _level(technicals.support),
+                "resistance": _level(technicals.resistance),
+                "rsi": None if technicals.rsi is None else f"{technicals.rsi:.2f}",
+                "sma20": _level(technicals.sma20),
+                "sma50": _level(technicals.sma50),
+                "atr": _level(technicals.atr),
+                "volume": technicals.volume,
+                "relativeVolume": None if technicals.relative_volume is None else f"{technicals.relative_volume:.2f}",
                 "rating": holding_rating(
                     price=float(row["price"]),
                     sma20=technicals.sma20,

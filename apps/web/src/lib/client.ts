@@ -90,6 +90,14 @@ export type PositionRow = {
   realizedPnl: string;
   sector: string;
   eps?: string | null;
+  support?: string | null;
+  resistance?: string | null;
+  rsi?: string | null;
+  sma20?: string | null;
+  sma50?: string | null;
+  atr?: string | null;
+  volume?: number | null;
+  relativeVolume?: string | null;
   rating?: string;
 };
 

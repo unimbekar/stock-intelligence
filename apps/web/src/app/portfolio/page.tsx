@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { MoneyCell, PageTitle, SignInPrompt, Stat, Usd, tone, useWorkspace } from "@/components/desk";
 import { SymbolField } from "@/components/symbol-field";
 import { api, type PositionRow } from "@/lib/client";
-import { money, signed } from "@/lib/format";
+import { compact, money, signed } from "@/lib/format";
 
 export default function PortfolioPage() {
   const { workspace, error, reload } = useWorkspace();
@@ -16,6 +16,7 @@ export default function PortfolioPage() {
   const [buyPrice, setBuyPrice] = useState("");
   const [cash, setCash] = useState("");
   const [message, setMessage] = useState("");
+  const [columns, setColumns] = useState<ColumnId[]>(DEFAULT_COLUMNS);
 
   async function addHolding(event: React.FormEvent) {
     event.preventDefault();
@@ -111,35 +112,47 @@ export default function PortfolioPage() {
         </button>
       </form>
       {message ? <p className="text-sm">{message}</p> : null}
-      <div className="overflow-x-auto border border-line">
-        <table className="w-full min-w-[980px] text-left text-sm">
-          <thead className="bg-muted-surface text-xs text-muted">
-            <tr>
-              {["Ticker", "Shares", "Buy", "Last", "Profit / loss", "P&L %", "EPS", "Rating", ""].map((label) => (
-                <th key={label} className="px-3 py-2 font-medium">
-                  {label}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {portfolio.positions.length === 0 ? (
+      <div className="border border-line">
+        <div className="flex items-center justify-end border-b border-line bg-muted-surface px-2 py-1">
+          <ColumnMenu columns={columns} onChange={setColumns} />
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[980px] text-left text-sm">
+            <thead className="text-xs text-muted">
               <tr>
-                <td className="px-3 py-4 text-muted" colSpan={9}>
-                  No holdings yet. Add a symbol and the price you paid.
-                </td>
+                {BASE_HEADERS.map((label) => (
+                  <th key={label} className="px-3 py-2 font-medium">
+                    {label}
+                  </th>
+                ))}
+                {columns.map((id) => (
+                  <th key={id} className="px-3 py-2 font-medium">
+                    {COLUMN_LABEL[id]}
+                  </th>
+                ))}
+                <th className="px-3 py-2 font-medium" />
               </tr>
-            ) : null}
-            {portfolio.positions.map((row) => (
-              <HoldingRow key={row.ticker} row={row} onMessage={setMessage} onReload={reload} />
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {portfolio.positions.length === 0 ? (
+                <tr>
+                  <td className="px-3 py-4 text-muted" colSpan={BASE_HEADERS.length + columns.length + 1}>
+                    No holdings yet. Add a symbol and the price you paid.
+                  </td>
+                </tr>
+              ) : null}
+              {portfolio.positions.map((row) => (
+                <HoldingRow key={row.ticker} row={row} columns={columns} onMessage={setMessage} onReload={reload} />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       <p className="text-xs leading-5 text-muted">
-        EPS is diluted earnings per share from the latest annual SEC filing. Buy, hold, and sell follow Meridian&apos;s
-        rules on the last close, that filing, and the moving averages. They are not a broker rating, and they are not a
-        promise of profit. Adding shares in a name you already hold updates the average buy price.
+        EPS is diluted earnings per share from the latest annual SEC filing. Support is the lowest low of the last 20
+        sessions, and resistance is the highest high. Buy, hold, and sell follow Meridian&apos;s rules on the last
+        close, that filing, and the moving averages. They are not a broker rating, and they are not a promise of
+        profit. Adding shares in a name you already hold updates the average buy price.
       </p>
     </div>
   );
@@ -147,10 +160,12 @@ export default function PortfolioPage() {
 
 function HoldingRow({
   row,
+  columns,
   onMessage,
   onReload,
 }: {
   row: PositionRow;
+  columns: ColumnId[];
   onMessage: (message: string) => void;
   onReload: () => void;
 }) {
@@ -208,6 +223,11 @@ function HoldingRow({
       </td>
       <td className="num px-3 py-2">{row.eps ?? "—"}</td>
       <td className={`px-3 py-2 ${ratingTone(row.rating)}`}>{row.rating ?? "—"}</td>
+      {columns.map((id) => (
+        <td key={id} className={`px-3 py-2 ${id === "sector" ? "" : "num"}`}>
+          {columnValue(row, id)}
+        </td>
+      ))}
       <td className="px-3 py-2 text-right">
         {editing ? (
           <form onSubmit={save} className="flex justify-end gap-2">
@@ -231,6 +251,112 @@ function HoldingRow({
       </td>
     </tr>
   );
+}
+
+const COLUMN_LABEL = {
+  support: "Support",
+  resistance: "Resistance",
+  rsi: "RSI",
+  sma20: "SMA 20",
+  sma50: "SMA 50",
+  atr: "ATR",
+  volume: "Volume",
+  relativeVolume: "Rel. volume",
+  sector: "Sector",
+  dailyPnl: "Day P&L",
+  weight: "Weight",
+} as const;
+
+type ColumnId = keyof typeof COLUMN_LABEL;
+
+const BASE_HEADERS = ["Ticker", "Shares", "Buy", "Last", "Profit / loss", "P&L %", "EPS", "Rating"];
+const DEFAULT_COLUMNS: ColumnId[] = ["support", "resistance"];
+const COLUMN_KEY = "meridian-portfolio-columns";
+
+function ColumnMenu({ columns, onChange }: { columns: ColumnId[]; onChange: (columns: ColumnId[]) => void }) {
+  const [open, setOpen] = useState(false);
+  const panel = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem(COLUMN_KEY);
+    if (!stored) return;
+    try {
+      const parsed = JSON.parse(stored) as string[];
+      const known = parsed.filter((id): id is ColumnId => id in COLUMN_LABEL);
+      onChange(known);
+    } catch {
+      window.localStorage.removeItem(COLUMN_KEY);
+    }
+  }, [onChange]);
+
+  useEffect(() => {
+    if (!open) return;
+    function close(event: MouseEvent) {
+      if (!panel.current?.contains(event.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, [open]);
+
+  function toggle(id: ColumnId) {
+    const next = columns.includes(id) ? columns.filter((item) => item !== id) : [...columns, id];
+    onChange(next);
+    window.localStorage.setItem(COLUMN_KEY, JSON.stringify(next));
+  }
+
+  return (
+    <div className="relative" ref={panel}>
+      <button
+        type="button"
+        className="border border-line bg-bg p-1.5 text-ink"
+        aria-label="Add columns"
+        aria-expanded={open}
+        onClick={() => setOpen((value) => !value)}
+      >
+        <ColumnsIcon />
+      </button>
+      {open ? (
+        <fieldset className="absolute right-0 z-20 mt-1 w-52 border border-line bg-elevated p-3 text-sm shadow-none">
+          <legend className="px-1 text-xs text-muted">Columns</legend>
+          <ul className="space-y-2">
+            {(Object.keys(COLUMN_LABEL) as ColumnId[]).map((id) => (
+              <li key={id}>
+                <label className="flex items-center gap-2">
+                  <input type="checkbox" checked={columns.includes(id)} onChange={() => toggle(id)} />
+                  {COLUMN_LABEL[id]}
+                </label>
+              </li>
+            ))}
+          </ul>
+        </fieldset>
+      ) : null}
+    </div>
+  );
+}
+
+function ColumnsIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <rect x="1" y="2" width="3.2" height="12" fill="none" stroke="currentColor" />
+      <rect x="6.4" y="2" width="3.2" height="12" fill="none" stroke="currentColor" />
+      <rect x="11.8" y="2" width="3.2" height="12" fill="none" stroke="currentColor" />
+    </svg>
+  );
+}
+
+function columnValue(row: PositionRow, id: ColumnId) {
+  if (id === "support") return row.support ? <Usd value={row.support} /> : "—";
+  if (id === "resistance") return row.resistance ? <Usd value={row.resistance} /> : "—";
+  if (id === "sma20") return row.sma20 ? <Usd value={row.sma20} /> : "—";
+  if (id === "sma50") return row.sma50 ? <Usd value={row.sma50} /> : "—";
+  if (id === "atr") return row.atr ? <Usd value={row.atr} /> : "—";
+  if (id === "dailyPnl") return <MoneyCell value={row.dailyPnl} />;
+  if (id === "weight") return row.weightPercent ? `${row.weightPercent}%` : "—";
+  if (id === "volume") return row.volume == null ? "—" : compact(row.volume);
+  if (id === "sector") return row.sector || "—";
+  if (id === "rsi") return row.rsi || "—";
+  if (id === "relativeVolume") return row.relativeVolume || "—";
+  return "—";
 }
 
 function ratingTone(rating: string | undefined): string {
