@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Meridian dashboard</title>
+  <desc id="desc">Dark equity desk with equity, cash, today's result, and the required return.</desc>
+  <rect width="960" height="560" fill="#101317"/>
+  <rect width="196" height="560" fill="#181d23"/>
+  <line x1="196" y1="0" x2="196" y2="560" stroke="#313a46"/>
+  <text x="20" y="36" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="2.4">MERIDIAN</text>
+  <text x="20" y="56" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="14">Equity desk</text>
+  <g font-family="ui-sans-serif, sans-serif" font-size="13">
+    <rect x="12" y="84" width="172" height="28" fill="#222932"/>
+    <text x="24" y="103" fill="#ebe6dc">Dashboard</text>
+    <text x="24" y="136" fill="#9aa3ae">Markets</text>
+    <text x="24" y="164" fill="#9aa3ae">AI Ideas</text>
+    <text x="24" y="192" fill="#9aa3ae">Stock Scanner</text>
+    <text x="24" y="220" fill="#9aa3ae">Watchlists</text>
+    <text x="24" y="248" fill="#9aa3ae">Portfolio</text>
+    <text x="24" y="276" fill="#9aa3ae">Trading Desk</text>
+    <text x="24" y="304" fill="#9aa3ae">Trade Journal</text>
+    <text x="24" y="332" fill="#9aa3ae">Performance</text>
+    <text x="24" y="360" fill="#9aa3ae">Research</text>
+    <text x="24" y="388" fill="#9aa3ae">Alerts</text>
+    <text x="24" y="416" fill="#9aa3ae">AI Assistant</text>
+    <text x="24" y="460" fill="#9aa3ae" font-size="11" letter-spacing="1.6">WORKSPACE</text>
+    <text x="24" y="488" fill="#9aa3ae">Settings</text>
+    <text x="24" y="516" fill="#9aa3ae">Admin</text>
+  </g>
+  <text x="220" y="36" fill="#e0b15a" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="1.8">EOD DATA</text>
+  <text x="820" y="36" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="13">Sign out</text>
+  <line x1="196" y1="52" x2="960" y2="52" stroke="#313a46"/>
+  <text x="220" y="88" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="1.8">LOCAL WORKSPACE</text>
+  <text x="220" y="122" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="28">Meridian</text>
+  <text x="220" y="148" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Paper equity, risk, and research on this machine. A daily profit target is arithmetic.</text>
+  <g font-family="ui-sans-serif, sans-serif">
+    <rect x="220" y="172" width="170" height="78" fill="#181d23" stroke="#313a46"/>
+    <text x="232" y="194" fill="#9aa3ae" font-size="12">Equity</text>
+    <text x="232" y="226" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="20">$54,430.00</text>
+    <rect x="402" y="172" width="170" height="78" fill="#181d23" stroke="#313a46"/>
+    <text x="414" y="194" fill="#9aa3ae" font-size="12">Today's P&amp;L</text>
+    <text x="414" y="226" fill="#3dbe86" font-family="ui-monospace, monospace" font-size="20">+$4,430.00</text>
+    <rect x="584" y="172" width="170" height="78" fill="#181d23" stroke="#313a46"/>
+    <text x="596" y="194" fill="#9aa3ae" font-size="12">Cash</text>
+    <text x="596" y="226" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="20">$34,921.60</text>
+    <rect x="766" y="172" width="170" height="78" fill="#181d23" stroke="#313a46"/>
+    <text x="778" y="194" fill="#9aa3ae" font-size="12">Required return</text>
+    <text x="778" y="226" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="20">4.0%</text>
+  </g>
+  <text x="220" y="286" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="14">Indexes</text>
+  <g font-family="ui-monospace, monospace" font-size="13">
+    <text x="220" y="318" fill="#ebe6dc">SPY</text>
+    <text x="300" y="318" fill="#ebe6dc">769.64</text>
+    <text x="220" y="346" fill="#ebe6dc">DIA</text>
+    <text x="300" y="346" fill="#ebe6dc">511.10</text>
+    <text x="220" y="374" fill="#ebe6dc">IWM</text>
+    <text x="300" y="374" fill="#ebe6dc">281.52</text>
+  </g>
+  <rect x="520" y="298" width="416" height="150" fill="#181d23" stroke="#313a46"/>
+  <text x="536" y="326" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="14">Open positions</text>
+  <g font-family="ui-monospace, monospace" font-size="13">
+    <text x="536" y="358" fill="#d7b07a">NVDA</text>
+    <text x="820" y="358" fill="#3dbe86" text-anchor="end">+1,534.55</text>
+    <text x="536" y="384" fill="#d7b07a">MSFT</text>
+    <text x="820" y="384" fill="#3dbe86" text-anchor="end">+1,075.30</text>
+    <text x="536" y="410" fill="#d7b07a">LLY</text>
+    <text x="820" y="410" fill="#3dbe86" text-anchor="end">+1,814.25</text>
+    <text x="536" y="436" fill="#d7b07a">TSLA</text>
+    <text x="820" y="436" fill="#3dbe86" text-anchor="end">+5.90</text>
+  </g>
+  <text x="220" y="500" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">Session 2026-10-02  /  seeded paper account  /  $50,000 capital, $2,000 daily target</text>
+  <text x="220" y="528" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">4.0% is $2,000 divided by $50,000. It is arithmetic, shown on the desk, and it is not a forecast.</text>
+</svg>

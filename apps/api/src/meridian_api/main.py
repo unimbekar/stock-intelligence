@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from meridian_config.settings import get_settings
 
+from meridian_api.gateway import PricesUnavailable
 from meridian_api.limiter import RateLimiter
 from meridian_api.routers import assistant, auth, health, market, meta, workspace
 
@@ -99,6 +100,11 @@ def create_app() -> FastAPI:
         response.headers["Referrer-Policy"] = "no-referrer"
         response.headers["Cache-Control"] = "no-store"
         return response
+
+    @app.exception_handler(PricesUnavailable)
+    async def prices_unavailable(request: Request, exc: PricesUnavailable) -> JSONResponse:
+        del request
+        return JSONResponse({"detail": str(exc)}, status_code=503)
 
     @app.exception_handler(Exception)
     async def unhandled(request: Request, exc: Exception) -> JSONResponse:

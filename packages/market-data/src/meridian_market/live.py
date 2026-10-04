@@ -1,9 +1,9 @@
 """End-of-day prices from Nasdaq's public historical quote table.
 
-This is the last regular session in that table, not a live tape and not a
+This is the last regular session in that table, not an intraday tape and not a
 licensed research feed. Additional symbols are loaded from the same table
-when someone looks them up. If the download fails, the caller should keep
-the demo book.
+when someone looks them up. A failed download must not be replaced with the
+demo series.
 """
 
 from __future__ import annotations
@@ -333,9 +333,11 @@ def _download_any(symbol: str) -> list[Bar]:
 
 
 def _download(symbol: str, asset_class: str) -> list[Bar]:
+    today = date.today()
+    start = today.replace(year=today.year - 1)
     url = (
         f"{NASDAQ}/{symbol}/historical?assetclass={asset_class}"
-        "&fromdate=2025-01-01&todate=2026-10-04&limit=400"
+        f"&fromdate={start.isoformat()}&todate={today.isoformat()}&limit=400"
     )
     request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
     with urlopen(request, timeout=20) as response:

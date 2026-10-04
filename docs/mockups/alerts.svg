@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Meridian alerts</title>
+  <desc id="desc">An alert row with the last close, a percent above that close, and email status.</desc>
+  <rect width="960" height="560" fill="#101317"/>
+  <rect width="196" height="560" fill="#181d23"/>
+  <line x1="196" y1="0" x2="196" y2="560" stroke="#313a46"/>
+  <text x="20" y="36" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="2.4">MERIDIAN</text>
+  <text x="20" y="56" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="14">Equity desk</text>
+  <g font-family="ui-sans-serif, sans-serif" font-size="13" fill="#9aa3ae">
+    <text x="24" y="104">Dashboard</text>
+    <text x="24" y="132">Portfolio</text>
+    <text x="24" y="160">Research</text>
+    <rect x="12" y="176" width="172" height="28" fill="#222932"/>
+    <text x="24" y="195" fill="#ebe6dc">Alerts</text>
+    <text x="24" y="228">AI Assistant</text>
+  </g>
+  <text x="220" y="36" fill="#e0b15a" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="1.8">EOD DATA</text>
+  <line x1="196" y1="52" x2="960" y2="52" stroke="#313a46"/>
+  <text x="220" y="86" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="1.8">ALERTS</text>
+  <text x="220" y="118" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="28">Alerts</text>
+  <text x="220" y="146" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Last Nasdaq close on every symbol. A percent is that close, moved up or down.</text>
+  <rect x="220" y="166" width="716" height="88" fill="#181d23" stroke="#313a46"/>
+  <text x="232" y="188" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">Email address</text>
+  <rect x="232" y="198" width="400" height="28" fill="#101317" stroke="#313a46"/>
+  <text x="242" y="217" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">you@example.com</text>
+  <text x="652" y="217" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="13">Save address</text>
+  <text x="770" y="217" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="13">Send test</text>
+  <rect x="220" y="268" width="716" height="110" fill="#181d23" stroke="#313a46"/>
+  <text x="232" y="294" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="14">NVDA</text>
+  <text x="300" y="294" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Last price</text>
+  <text x="380" y="294" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="14">$233.95</text>
+  <text x="460" y="294" fill="#3dbe86" font-family="ui-monospace, monospace" font-size="14">+1.34%</text>
+  <rect x="232" y="312" width="110" height="28" fill="#101317" stroke="#313a46"/>
+  <text x="244" y="331" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="13">Percent</text>
+  <rect x="352" y="312" width="110" height="28" fill="#101317" stroke="#313a46"/>
+  <text x="364" y="331" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="13">Above</text>
+  <rect x="472" y="312" width="80" height="28" fill="#101317" stroke="#313a46"/>
+  <text x="490" y="331" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="13">5</text>
+  <text x="572" y="331" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="13">Add alert</text>
+  <text x="232" y="362" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">5% above $233.95 is $245.65. Email me when this triggers.</text>
+  <line x1="220" y1="400" x2="936" y2="400" stroke="#313a46"/>
+  <text x="220" y="432" fill="#d7b07a" font-family="ui-monospace, monospace" font-size="14">NVDA</text>
+  <text x="280" y="432" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="14">$233.95</text>
+  <text x="360" y="432" fill="#3dbe86" font-family="ui-monospace, monospace" font-size="13">+1.34%</text>
+  <text x="220" y="456" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Price above $200.00</text>
+  <text x="700" y="444" fill="#e0b15a" font-family="ui-sans-serif, sans-serif" font-size="13">Triggered - email waiting</text>
+  <text x="220" y="500" fill="#d7b07a" font-family="ui-monospace, monospace" font-size="14">NVDA</text>
+  <text x="280" y="500" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="14">$233.95</text>
+  <text x="220" y="524" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">5% above $233.95 to $245.65</text>
+  <text x="700" y="512" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Watching - email on</text>
+</svg>

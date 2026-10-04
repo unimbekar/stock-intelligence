@@ -1,14 +1,27 @@
 from __future__ import annotations
 
+import os
 from functools import lru_cache
+from pathlib import Path
 from typing import Literal
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+def _env_file() -> str:
+    explicit = os.environ.get("MERIDIAN_ENV_FILE", "").strip()
+    if explicit:
+        return explicit
+    here = Path(__file__).resolve()
+    for parent in here.parents:
+        if (parent / "pyproject.toml").is_file() and (parent / ".env").is_file():
+            return str(parent / ".env")
+    return ".env"
+
+
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(env_file=_env_file(), env_file_encoding="utf-8", extra="ignore")
 
     app_name: str = "Meridian"
     environment: Literal["local", "test", "production"] = "local"

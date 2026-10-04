@@ -34,7 +34,7 @@ services:
     environment:
       DATABASE_URL: postgresql+psycopg://meridian:meridian@postgres:5432/meridian
       REDIS_URL: redis://redis:6379/0
-      DATA_MODE: ${DATA_MODE:-mock}
+      DATA_MODE: ${DATA_MODE:-live}
       AI_PROVIDER: ${AI_PROVIDER:-local}
       WEB_ORIGIN: ${WEB_ORIGIN:-http://localhost:3000}
       SECRET_KEY: ${SECRET_KEY:-local-dev-only-change-me}

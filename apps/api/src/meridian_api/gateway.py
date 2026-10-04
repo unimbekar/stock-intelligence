@@ -16,6 +16,10 @@ _fallback_reason = ""
 _load_lock = threading.Lock()
 
 
+class PricesUnavailable(RuntimeError):
+    """Nasdaq did not return a session table. Demo prices are not a stand-in."""
+
+
 class SecBook:
     """Demo prices with EDGAR fundamentals when a daily tape is unavailable."""
 
@@ -69,28 +73,19 @@ def active_book() -> Catalog | LiveBook | SecBook:
         return _load_live(now)
 
 
-def _load_live(now: float) -> Catalog | LiveBook | SecBook:
+def _load_live(now: float) -> LiveBook:
     global _cache, _fallback_reason
     try:
         book = LiveBook.load()
         load_sec_fundamentals()
-        _cache = (now, book)
-        _fallback_reason = ""
-        return book
     except Exception as exc:
         logger.warning("live prices unavailable: %s", exc.__class__.__name__)
-        facts = load_sec_fundamentals()
-        if facts:
-            book = SecBook(get_catalog(), facts)
-            _cache = (now, book)
-            _fallback_reason = (
-                "Nasdaq did not return the end-of-day table. "
-                "Prices and charts stay on the labeled series. "
-                f"Fundamentals for {len(facts)} companies are annual figures from SEC EDGAR company facts."
-            )
-            return book
-        _fallback_reason = "Live prices and SEC fundamentals could not be loaded. Showing the labeled demo series."
-        return get_catalog()
+        raise PricesUnavailable(
+            "Nasdaq did not return the session table. Demo prices are not shown in their place."
+        ) from exc
+    _cache = (now, book)
+    _fallback_reason = ""
+    return book
 
 
 def data_status() -> dict[str, str]:

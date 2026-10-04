@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Meridian portfolio</title>
+  <desc id="desc">Holdings with buy price, last close, profit and loss, EPS, and a local buy hold or sell mark.</desc>
+  <rect width="960" height="620" fill="#101317"/>
+  <rect width="196" height="620" fill="#181d23"/>
+  <line x1="196" y1="0" x2="196" y2="620" stroke="#313a46"/>
+  <text x="20" y="36" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="2.4">MERIDIAN</text>
+  <text x="20" y="56" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="14">Equity desk</text>
+  <g font-family="ui-sans-serif, sans-serif" font-size="13" fill="#9aa3ae">
+    <text x="24" y="104">Dashboard</text>
+    <text x="24" y="132">Markets</text>
+    <text x="24" y="160">AI Ideas</text>
+    <text x="24" y="188">Watchlists</text>
+    <rect x="12" y="204" width="172" height="28" fill="#222932"/>
+    <text x="24" y="223" fill="#ebe6dc">Portfolio</text>
+    <text x="24" y="256">Trading Desk</text>
+    <text x="24" y="284">Research</text>
+    <text x="24" y="312">Alerts</text>
+    <text x="24" y="340">AI Assistant</text>
+  </g>
+  <text x="220" y="36" fill="#e0b15a" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="1.8">EOD DATA</text>
+  <line x1="196" y1="52" x2="960" y2="52" stroke="#313a46"/>
+  <text x="220" y="86" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11" letter-spacing="1.8">PORTFOLIO</text>
+  <text x="220" y="118" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="28">Primary</text>
+  <rect x="220" y="140" width="716" height="44" fill="#181d23" stroke="#313a46"/>
+  <text x="232" y="166" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Symbol</text>
+  <text x="420" y="166" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Shares</text>
+  <text x="560" y="166" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="13">Price you paid</text>
+  <text x="820" y="166" fill="#ebe6dc" font-family="ui-sans-serif, sans-serif" font-size="13">Add holding</text>
+  <g font-family="ui-sans-serif, sans-serif" font-size="12">
+    <rect x="220" y="200" width="170" height="64" fill="#181d23" stroke="#313a46"/>
+    <text x="232" y="222" fill="#9aa3ae">Equity</text>
+    <text x="232" y="246" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="16">$54,430.00</text>
+    <rect x="402" y="200" width="170" height="64" fill="#181d23" stroke="#313a46"/>
+    <text x="414" y="222" fill="#9aa3ae">Market value</text>
+    <text x="414" y="246" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="16">$19,508.40</text>
+    <rect x="584" y="200" width="170" height="64" fill="#181d23" stroke="#313a46"/>
+    <text x="596" y="222" fill="#9aa3ae">Cash</text>
+    <text x="596" y="246" fill="#ebe6dc" font-family="ui-monospace, monospace" font-size="16">$34,921.60</text>
+    <rect x="766" y="200" width="170" height="64" fill="#181d23" stroke="#313a46"/>
+    <text x="778" y="222" fill="#9aa3ae">Profit / loss</text>
+    <text x="778" y="246" fill="#3dbe86" font-family="ui-monospace, monospace" font-size="16">+$4,430.00</text>
+  </g>
+  <g font-family="ui-sans-serif, sans-serif" font-size="11" fill="#9aa3ae">
+    <text x="220" y="296">Symbol</text>
+    <text x="390" y="296">Shares</text>
+    <text x="470" y="296">Buy</text>
+    <text x="545" y="296">Last</text>
+    <text x="630" y="296">P&amp;L</text>
+    <text x="720" y="296">EPS</text>
+    <text x="780" y="296">Mark</text>
+  </g>
+  <line x1="220" y1="306" x2="936" y2="306" stroke="#313a46"/>
+  <g font-family="ui-monospace, monospace" font-size="12">
+    <text x="220" y="332" fill="#d7b07a">NVDA</text>
+    <text x="300" y="332" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">NVIDIA Corporation</text>
+    <text x="390" y="332" fill="#ebe6dc">21</text>
+    <text x="470" y="332" fill="#ebe6dc">160.88</text>
+    <text x="545" y="332" fill="#ebe6dc">233.95</text>
+    <text x="630" y="332" fill="#3dbe86">+45.42%</text>
+    <text x="720" y="332" fill="#ebe6dc">4.90</text>
+    <text x="780" y="332" fill="#3dbe86" font-family="ui-sans-serif, sans-serif">Buy</text>
+    <text x="860" y="332" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">Edit  Delete</text>
+    <text x="220" y="364" fill="#d7b07a">MSFT</text>
+    <text x="300" y="364" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">Microsoft Corporation</text>
+    <text x="390" y="364" fill="#ebe6dc">10</text>
+    <text x="470" y="364" fill="#ebe6dc">410.00</text>
+    <text x="545" y="364" fill="#ebe6dc">517.53</text>
+    <text x="630" y="364" fill="#3dbe86">+26.23%</text>
+    <text x="720" y="364" fill="#ebe6dc">17.95</text>
+    <text x="780" y="364" fill="#3dbe86" font-family="ui-sans-serif, sans-serif">Buy</text>
+    <text x="860" y="364" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">Edit  Delete</text>
+    <text x="220" y="396" fill="#d7b07a">LLY</text>
+    <text x="300" y="396" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">Eli Lilly and Company</text>
+    <text x="390" y="396" fill="#ebe6dc">5</text>
+    <text x="470" y="396" fill="#ebe6dc">780.00</text>
+    <text x="545" y="396" fill="#ebe6dc">1,142.85</text>
+    <text x="630" y="396" fill="#3dbe86">+46.52%</text>
+    <text x="720" y="396" fill="#ebe6dc">22.95</text>
+    <text x="780" y="396" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif">Hold</text>
+    <text x="860" y="396" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">Edit  Delete</text>
+    <text x="220" y="428" fill="#d7b07a">TSLA</text>
+    <text x="300" y="428" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">Tesla, Inc.</text>
+    <text x="390" y="428" fill="#ebe6dc">10</text>
+    <text x="470" y="428" fill="#ebe6dc">370.00</text>
+    <text x="545" y="428" fill="#ebe6dc">370.59</text>
+    <text x="630" y="428" fill="#3dbe86">+0.16%</text>
+    <text x="720" y="428" fill="#ebe6dc">1.08</text>
+    <text x="780" y="428" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif">Hold</text>
+    <text x="860" y="428" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="11">Edit  Delete</text>
+  </g>
+  <text x="220" y="480" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">EPS is diluted earnings per share from the latest annual SEC filing.</text>
+  <text x="220" y="502" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">Buy, hold, and sell follow the last close, that filing, and the moving averages.</text>
+  <text x="220" y="524" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">They are a local mark on this desk. They are not a broker rating.</text>
+  <text x="220" y="568" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">Edit replaces the open lot at the old average cost, then books the new shares and price.</text>
+  <text x="220" y="590" fill="#9aa3ae" font-family="ui-sans-serif, sans-serif" font-size="12">Delete returns that cost basis to cash. The original fills stay in the ledger.</text>
+</svg>

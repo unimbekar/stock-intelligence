@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title">
+  <title id="title">Asking the assistant</title>
+  <rect width="1200" height="360" fill="#f4f0e7"/>
+  <text x="40" y="42" fill="#8a5628" font-family="Liberation Sans, sans-serif" font-size="13" letter-spacing="2">ASK THE ASSISTANT</text>
+  <line x1="88" y1="78" x2="1112" y2="78" stroke="#d5cdc0" stroke-width="3"/>
+  <g font-family="Liberation Sans, sans-serif">
+    <g>
+      <circle cx="88" cy="78" r="16" fill="#1b1916"/>
+      <text x="88" y="83" text-anchor="middle" fill="#f4f0e7" font-size="13">1</text>
+      <rect x="16" y="112" width="176" height="196" rx="14" fill="#ffffff" stroke="#d5cdc0"/>
+      <text x="104" y="156" text-anchor="middle" fill="#8a5628" font-size="12">YOU</text>
+      <text x="104" y="188" text-anchor="middle" fill="#1b1916" font-size="15">Oracle's</text>
+      <text x="104" y="210" text-anchor="middle" fill="#1b1916" font-size="15">last close</text>
+    </g>
+    <g>
+      <circle cx="344" cy="78" r="16" fill="#1b1916"/>
+      <text x="344" y="83" text-anchor="middle" fill="#f4f0e7" font-size="13">2</text>
+      <rect x="256" y="112" width="176" height="196" rx="14" fill="#ffffff" stroke="#d5cdc0"/>
+      <text x="344" y="156" text-anchor="middle" fill="#8a5628" font-size="12">SEC DIRECTORY</text>
+      <text x="344" y="196" text-anchor="middle" fill="#1b1916" font-size="20">ORCL</text>
+    </g>
+    <g>
+      <circle cx="600" cy="78" r="16" fill="#1b1916"/>
+      <text x="600" y="83" text-anchor="middle" fill="#f4f0e7" font-size="13">3</text>
+      <rect x="500" y="112" width="200" height="196" rx="14" fill="#ffffff" stroke="#d5cdc0"/>
+      <text x="600" y="152" text-anchor="middle" fill="#8a5628" font-size="12">THE BUNDLE</text>
+      <text x="600" y="186" text-anchor="middle" fill="#1b1916" font-size="15">Nasdaq close</text>
+      <text x="600" y="210" text-anchor="middle" fill="#1b1916" font-size="15">SEC facts</text>
+      <text x="600" y="234" text-anchor="middle" fill="#1b1916" font-size="15">Filing links</text>
+    </g>
+    <g>
+      <circle cx="856" cy="78" r="16" fill="#1b1916"/>
+      <text x="856" y="83" text-anchor="middle" fill="#f4f0e7" font-size="13">4</text>
+      <rect x="768" y="112" width="176" height="196" rx="14" fill="#ffffff" stroke="#d5cdc0"/>
+      <text x="856" y="156" text-anchor="middle" fill="#8a5628" font-size="12">QWEN 3.6</text>
+      <text x="856" y="190" text-anchor="middle" fill="#1b1916" font-size="15">Writes from</text>
+      <text x="856" y="214" text-anchor="middle" fill="#1b1916" font-size="15">that bundle</text>
+    </g>
+    <g>
+      <circle cx="1112" cy="78" r="16" fill="#8a5628"/>
+      <text x="1112" y="83" text-anchor="middle" fill="#f4f0e7" font-size="13">5</text>
+      <rect x="1008" y="112" width="176" height="196" rx="14" fill="#1b1916"/>
+      <text x="1096" y="156" text-anchor="middle" fill="#d7b07a" font-size="12">CHECK</text>
+      <text x="1096" y="188" text-anchor="middle" fill="#f4f0e7" font-size="15">A new number</text>
+      <text x="1096" y="212" text-anchor="middle" fill="#f4f0e7" font-size="15">is dropped.</text>
+      <text x="1096" y="244" text-anchor="middle" fill="#f4f0e7" font-size="15">The restatement</text>
+      <text x="1096" y="268" text-anchor="middle" fill="#f4f0e7" font-size="15">is shown.</text>
+    </g>
+  </g>
+</svg>

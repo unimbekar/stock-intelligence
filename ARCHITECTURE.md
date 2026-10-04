@@ -33,7 +33,7 @@ Each external capability is an interface with a mock implementation.
 | `AnalystProvider` | Ratings and targets | `MockAnalystProvider` |
 | `AIProvider` | Language only | `LocalAIProvider` |
 
-`DATA_MODE=mock` is the only market-data mode in the local build. The interface is labeled in the API payload (`dataMode`, `sourceType`) and in the UI (`DEMO DATA`). Mock research names the publication it is *standing in for* and states that the text was not retrieved from that publication.
+`DATA_MODE=mock` is the test tape. The UI labels it `DEMO DATA`. `DATA_MODE=live` uses the last Nasdaq regular session and SEC EDGAR filings, and the UI labels it `EOD DATA`. Live research does not invent analyst targets. Mock research, used by tests, names the publication it is standing in for and states that the text was not retrieved from that publication.
 
 Planned live adapters, used only under their licenses: Polygon, Finnhub, Alpha Vantage, Twelve Data, Financial Modeling Prep, IEX, Nasdaq, SEC EDGAR. No scraper bypasses authentication, paywalls, or robots rules.
 
