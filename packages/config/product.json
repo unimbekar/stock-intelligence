@@ -1,0 +1,20 @@
+{
+  "name": "Meridian",
+  "tagline": "Research, risk, and paper trading for US equities.",
+  "dataModeLabel": "DEMO DATA",
+  "disclaimer": "This platform provides market information, research aggregation, analytics, paper-trading tools, and AI-generated insights for informational and educational purposes only. It does not provide personalized investment advice or guarantee investment results. Past performance does not guarantee future results. Users are responsible for their own investment decisions.",
+  "targetScenario": {
+    "capital": 50000,
+    "dailyProfitTarget": 2000,
+    "note": "A 4% daily return is an aggressive objective. It is not a forecast, a promise, or a realistic expectation of sustained performance."
+  },
+  "scoringWeights": {
+    "technicalMomentum": 0.25,
+    "fundamentalStrength": 0.2,
+    "analystSentiment": 0.15,
+    "earningsMomentum": 0.15,
+    "valuation": 0.1,
+    "sectorMomentum": 0.1,
+    "riskVolatility": 0.05
+  }
+}

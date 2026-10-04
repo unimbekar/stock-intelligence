@@ -1,0 +1,11 @@
+{
+  "name": "meridian",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix apps/web",
+    "lint": "npm run lint --prefix apps/web",
+    "typecheck": "npm run typecheck --prefix apps/web",
+    "build": "npm run build --prefix apps/web",
+    "test": "uv run pytest"
+  }
+}

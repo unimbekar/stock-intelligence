@@ -1,0 +1,65 @@
+[project]
+name = "meridian"
+version = "0.1.0"
+description = "Local-first US equity research and paper-trading workspace."
+requires-python = ">=3.12"
+dependencies = [
+    "meridian-api",
+    "meridian-config",
+    "meridian-db",
+    "meridian-market",
+    "meridian-research",
+    "meridian-ai",
+    "meridian-trading",
+    "meridian-analytics",
+]
+
+[tool.uv.workspace]
+members = [
+    "apps/api",
+    "packages/config",
+    "packages/database",
+    "packages/market-data",
+    "packages/research",
+    "packages/ai",
+    "packages/trading",
+    "packages/analytics",
+]
+
+[tool.uv.sources]
+meridian-api = { workspace = true }
+meridian-config = { workspace = true }
+meridian-db = { workspace = true }
+meridian-market = { workspace = true }
+meridian-research = { workspace = true }
+meridian-ai = { workspace = true }
+meridian-trading = { workspace = true }
+meridian-analytics = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.9",
+    "httpx>=0.28",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: requires Postgres and Redis",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+src = ["apps", "packages", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"apps/api/alembic/versions/*.py" = ["E501"]
+"apps/api/src/meridian_api/**/*.py" = ["B008"]
+
+[tool.ruff.format]
+quote-style = "double"

@@ -1,0 +1,33 @@
+[project]
+name = "meridian-api"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.14",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+    "redis>=5.2",
+    "meridian-config",
+    "meridian-db",
+    "meridian-market",
+    "meridian-research",
+    "meridian-ai",
+    "meridian-trading",
+    "meridian-analytics",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/meridian_api"]
+
+[tool.uv.sources]
+meridian-config = { workspace = true }
+meridian-db = { workspace = true }
+meridian-market = { workspace = true }
+meridian-research = { workspace = true }
+meridian-ai = { workspace = true }
+meridian-trading = { workspace = true }
+meridian-analytics = { workspace = true }

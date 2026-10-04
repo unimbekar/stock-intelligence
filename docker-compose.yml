@@ -1,0 +1,66 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-meridian}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-meridian}
+      POSTGRES_DB: ${POSTGRES_DB:-meridian}
+    ports:
+      - "5433:5432"
+    volumes:
+      - meridian_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-meridian} -d ${POSTGRES_DB:-meridian}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - meridian_redis:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/api.Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://meridian:meridian@postgres:5432/meridian
+      REDIS_URL: redis://redis:6379/0
+      DATA_MODE: ${DATA_MODE:-mock}
+      AI_PROVIDER: ${AI_PROVIDER:-local}
+      WEB_ORIGIN: ${WEB_ORIGIN:-http://localhost:3000}
+      SECRET_KEY: ${SECRET_KEY:-local-dev-only-change-me}
+      LOCAL_AI_BASE_URL: ${LOCAL_AI_BASE_URL:-http://127.0.0.1:11434}
+      LOCAL_AI_MODEL: ${LOCAL_AI_MODEL:-}
+      ENVIRONMENT: local
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/web.Dockerfile
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      PRODUCT_CONFIG_PATH: /app/packages/config/product.json
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  meridian_pg:
+  meridian_redis:
